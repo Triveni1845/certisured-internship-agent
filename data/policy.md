@@ -1,0 +1,2 @@
+# SYNTHETIC TRAINING POLICY
+All internship fees and session times are unconfirmed. Offer letters require authorized staff review; this demo cannot issue one. Never promise admission. This content is fictional.
