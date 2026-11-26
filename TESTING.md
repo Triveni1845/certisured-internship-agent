@@ -1,33 +1,80 @@
 # Certisured Internship Support Agent
 ## Local Testing Report
 
-### Server
-Command: uvicorn web:app --reload
-URL: http://127.0.0.1:8000
+### Test Environment
+- Application: Certisured Internship Support Agent
+- Framework: FastAPI
+- Server: Uvicorn
+- Command: `uvicorn web:app --reload`
+- Local URL: http://127.0.0.1:8000
+- Environment: Local Windows development environment
 
-### Website Test
-- Homepage loaded successfully.
-- CSS and JavaScript loaded successfully.
-### AI Chat Test
-
-Question: What is the duration of the Web Development internship?
-
-Expected: 6 weeks based on synthetic program records.
-
-Actual: [The Web Development internship lasts **6 weeks**.  
-The fee and timing details are currently listed as “Unconfirmed,” so you’ll need to check with staff for the most up‑to‑date information.
-]
+### Test 1: Application Startup
 
 Status: PASS
 
-HTTP response: 200 OK
-### Inquiry Form Test
-- Inquiry form submitted with fictional test data.
-- Consent checkbox selected.
-- API response: 200 OK.
-- Database persistence: Not yet verified.
+Observed server output:
+- Application startup complete.
+- GET / returned 304 Not Modified.
+- GET /style.css returned 304 Not Modified.
+- GET /app.js returned 304 Not Modified.
 
-### Security
-- GROQ_API_KEY is stored in local .env.
-- .env must remain excluded from Git.
-- No real student information used for testing.
+Result: Website loaded successfully.
+
+### Test 2: AI Chat Functionality
+
+Status: PASS
+
+Question:
+What is the duration of the Web Development internship?
+
+Actual assistant response:
+The Web Development internship lasts 6 weeks.
+The fee and timing details are currently listed as
+"Unconfirmed", so staff confirmation is required.
+
+Expected:
+Retrieve the Web Development internship duration
+from the synthetic program data.
+
+Result:
+The assistant correctly identified the duration
+as 6 weeks and did not invent fees or timings.
+
+HTTP Status:
+POST /api/ask - 200 OK
+
+### Test 3: Inquiry Form
+
+Status: PASS (HTTP submission)
+
+Actions:
+1. Opened the inquiry form.
+2. Entered test details.
+3. Selected the consent checkbox.
+4. Submitted the inquiry.
+
+Observed response:
+Staff follow-up requested, no admission promised.
+
+HTTP Status:
+POST /api/inquiry - 200 OK
+
+Database persistence:
+Not independently verified.
+
+### Security Verification
+
+- GROQ_API_KEY is configured in the local .env file.
+- The .env file must remain excluded from Git.
+- No API keys are included in this report.
+
+### Overall Result
+
+Local application startup: PASS
+Website loading: PASS
+AI chat response: PASS
+Inquiry HTTP submission: PASS
+
+The Certisured Internship Support Agent was tested
+locally using Uvicorn.
