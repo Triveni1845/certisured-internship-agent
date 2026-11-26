@@ -193,4 +193,41 @@ Development prototype with local testing.
 Staging deployment and production readiness must be verified separately.
 ## Demo Recording
 
-[Watch Certisured Internship Support Agent Demo](https://drive.google.com/file/d/1F83qmJJBRRMPyLHnzWiulT3E0y--vffg/view?usp=sharing)
+Watch the Certisured Internship Support Agent demonstration:
+
+[▶ Watch Demo Video](https://drive.google.com/file/d/1F83qmJJBRRMPyLHnzWiulT3E0y--vffg/view?usp=sharing)
+
+The recording demonstrates:
+
+1. Verified sample answers using synthetic internship information.
+2. Fallback responses when internship details are unconfirmed.
+3. Consent-based inquiry submission using fictional student details.
+
+No API keys or private student information should be visible.
+
+## Staging Deployment
+
+The application uses the following Render configuration:
+
+Build command:
+pip install -r requirements.txt
+
+Start command:
+uvicorn web:app --host 0.0.0.0 --port $PORT
+
+Environment variables:
+- GROQ_API_KEY (server-side secret)
+- GROQ_MODEL
+
+## Production Requirements
+
+Before handling real student information, implement:
+- Verified internship policies
+- Managed database
+- Consent records and privacy notice
+- Staff authentication
+- Rate limiting
+- Durable conversation storage
+- Monitoring and backups
+
+The application is currently a staging prototype.
