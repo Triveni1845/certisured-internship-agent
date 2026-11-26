@@ -31,14 +31,14 @@ This application helps prospective internship students ask questions about progr
 
 Install Python 3.11+, Git, and VS Code.
 
-Clone the repository:
+### Clone the Repository
 
 ```bash
 git clone https://github.com/Triveni1845/certisured-internship-agent.git
 cd certisured-internship-agent
 ```
 
-Create a virtual environment:
+### Create a Virtual Environment
 
 ```bash
 python -m venv .venv
@@ -50,11 +50,13 @@ Activate the environment on Windows PowerShell:
 .\.venv\Scripts\Activate.ps1
 ```
 
-Install dependencies:
+### Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
+
+### Configure Environment Variables
 
 Create the local environment file:
 
@@ -69,27 +71,27 @@ GROQ_API_KEY=YOUR_PRIVATE_GROQ_KEY
 GROQ_MODEL=openai/gpt-oss-20b
 ```
 
-Never commit `.env` to GitHub.
+**Security:** Never commit `.env` or actual API keys to GitHub.
 
-Initialize the local database:
+### Initialize the Database
 
 ```bash
 python db.py
 ```
 
-Run tests:
+### Run Tests
 
 ```bash
 python -m pytest -q
 ```
 
-Start the application:
+### Start the Application
 
 ```bash
 uvicorn web:app --reload
 ```
 
-Open:
+Open the application in your browser:
 
 http://127.0.0.1:8000
 
@@ -101,27 +103,31 @@ The application can be deployed to a Python-compatible hosting service such as R
 
 | Setting | Value |
 |---|---|
-| Service | Web Service |
+| Platform | Render |
+| Service Type | Web Service |
 | Runtime | Python 3 |
 | Repository | Triveni1845/certisured-internship-agent |
 | Branch | main |
-| Build Command | pip install -r requirements.txt |
-| Start Command | uvicorn web:app --host 0.0.0.0 --port $PORT |
+| Build Command | `pip install -r requirements.txt` |
+| Start Command | `uvicorn web:app --host 0.0.0.0 --port $PORT` |
 
-Configure these environment variables securely through the hosting platform:
+### Environment Variables
 
-- `GROQ_API_KEY`: Private Groq API key
-- `GROQ_MODEL`: Supported tool-calling model
+Configure the following environment variables securely through the hosting platform:
 
-Never place actual API keys in GitHub or application source files.
+- `GROQ_API_KEY`: Private Groq API key stored as a server-side secret
+- `GROQ_MODEL`: Supported Groq model
+
+Never expose API keys in source code, screenshots, recordings, or GitHub commits.
 
 ### Staging Restrictions
 
 - Use synthetic program records only.
-- Use fictional inquiry information during testing.
-- Do not advertise staging as the official admissions service.
-- Do not issue internship offer letters automatically.
-- Do not rely on ephemeral local SQLite storage for permanent inquiries.
+- Use fictional student information during testing.
+- Do not advertise staging as an official admissions service.
+- Do not automatically issue internship offer letters.
+- Do not rely on temporary SQLite storage for permanent inquiries.
+- Restrict staging usage to development and demonstration purposes.
 
 ## Production Gate
 
@@ -150,84 +156,64 @@ No automated offer-letter issuance is permitted without an approved institutiona
 
 ## Demo and Testing
 
-The demonstration should cover:
+The demonstration is designed to cover the following application behaviors.
 
-**Test 1: Verified sample answer**
+### Test 1: Verified Sample Answer
 
-Question:
+**Question:**
 
 What is the duration of the Web Development internship?
 
-Expected behavior:
+**Expected Behavior:**
 
 The agent retrieves the synthetic program record and explains that the sample duration is six weeks.
 
-**Test 2: Fallback behavior**
+### Test 2: Fallback Behavior
 
-Question:
+**Question:**
 
 What is the confirmed fee for the Agentic AI internship?
 
-Expected behavior:
+**Expected Behavior:**
 
 The agent explains that the fee is unconfirmed and refers the student to Certisured staff.
 
-**Test 3: Consent-based inquiry**
+### Test 3: Consent-Based Inquiry
 
-Submit a fictional inquiry with the consent checkbox selected.
+**Action:**
 
-Expected behavior:
+Submit a fictional student inquiry with the consent checkbox selected.
+
+**Expected Behavior:**
 
 The application acknowledges the follow-up request without promising admission.
 
-### Demo Recording
+## Demo Recording
 
-Demo URL: To be added after recording and publishing.
+The demonstration recording has been uploaded to Google Drive.
 
-The recording must not expose API keys, private student information, or other sensitive credentials.
+**[▶ Watch Certisured Internship Support Agent Demo](https://drive.google.com/file/d/1F83qmJJBRRMPyLHnzWiulT3E0y--vffg/view?usp=sharing)**
+
+The demonstration is intended to show:
+
+1. Sample answers retrieved from synthetic internship records.
+2. Fallback responses when internship details are unconfirmed.
+3. Consent-based inquiry submission using fictional student information.
+
+**Privacy and Security:**
+
+The recording must not reveal API keys, passwords, private student information, or other sensitive credentials.
+
+The demo is for educational and staging review purposes only.
 
 ## Project Status
 
-Development prototype with local testing.
+**Current Stage:** Development prototype and staging review.
 
-Staging deployment and production readiness must be verified separately.
-## Demo Recording
+The application includes an AI-powered internship support interface, synthetic program data, policy lookup functionality, and a consent-based inquiry workflow.
 
-Watch the Certisured Internship Support Agent demonstration:
+Local testing has been performed during development. Staging deployment and production readiness must be verified separately.
 
-[▶ Watch Demo Video](https://drive.google.com/file/d/1F83qmJJBRRMPyLHnzWiulT3E0y--vffg/view?usp=sharing)
+**Production Status:** Not production-ready.
 
-The recording demonstrates:
-
-1. Verified sample answers using synthetic internship information.
-2. Fallback responses when internship details are unconfirmed.
-3. Consent-based inquiry submission using fictional student details.
-
-No API keys or private student information should be visible.
-
-## Staging Deployment
-
-The application uses the following Render configuration:
-
-Build command:
-pip install -r requirements.txt
-
-Start command:
-uvicorn web:app --host 0.0.0.0 --port $PORT
-
-Environment variables:
-- GROQ_API_KEY (server-side secret)
-- GROQ_MODEL
-
-## Production Requirements
-
-Before handling real student information, implement:
-- Verified internship policies
-- Managed database
-- Consent records and privacy notice
-- Staff authentication
-- Rate limiting
-- Durable conversation storage
-- Monitoring and backups
-
-The application is currently a staging prototype.
+Before deployment for real student use, all requirements listed in the Production Gate section must be completed.
