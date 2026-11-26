@@ -191,3 +191,6 @@ The recording must not expose API keys, private student information, or other se
 Development prototype with local testing.
 
 Staging deployment and production readiness must be verified separately.
+## Demo Recording
+
+[Watch Certisured Internship Support Agent Demo](https://drive.google.com/file/d/1F83qmJJBRRMPyLHnzWiulT3E0y--vffg/view?usp=sharing)
