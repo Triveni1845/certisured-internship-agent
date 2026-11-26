@@ -23,7 +23,7 @@ This application helps prospective internship students ask questions about progr
 - LangChain and LangGraph
 - Groq API
 - SQLite for local prototype inquiries
-- HTML, CSS, JavaScript
+- HTML, CSS, and JavaScript
 - GitHub
 - Render for staging deployment
 
@@ -156,7 +156,7 @@ No automated offer-letter issuance is permitted without an approved institutiona
 
 ## Demo and Testing
 
-The demonstration is designed to cover the following application behaviors.
+The demonstration covers three essential application scenarios.
 
 ### Test 1: Verified Sample Answer
 
@@ -194,26 +194,109 @@ The demonstration recording has been uploaded to Google Drive.
 
 **[▶ Watch Certisured Internship Support Agent Demo](https://drive.google.com/file/d/1F83qmJJBRRMPyLHnzWiulT3E0y--vffg/view?usp=sharing)**
 
-The demonstration is intended to show:
+The recording was reviewed by the project developer for the following requirements:
 
 1. Sample answers retrieved from synthetic internship records.
 2. Fallback responses when internship details are unconfirmed.
 3. Consent-based inquiry submission using fictional student information.
+4. No exposure of API keys, passwords, or real student information.
 
 **Privacy and Security:**
 
 The recording must not reveal API keys, passwords, private student information, or other sensitive credentials.
 
-The demo is for educational and staging review purposes only.
+The demo is intended for educational and staging review purposes only.
+
+## Final Verification
+
+### Automated Test Execution
+
+The final automated test suite was executed locally using:
+
+```bash
+python -m pytest -q
+```
+
+### Final Test Results
+
+The test execution returned:
+
+```text
+....                                             [100%]
+
+4 passed, 17 warnings in 1.76s
+```
+
+**Test Summary:**
+
+| Metric | Result |
+|---|---|
+| Total Tests | 4 |
+| Passed | 4 |
+| Failed | 0 |
+| Warnings | 17 |
+| Execution Time | 1.76 seconds |
+| Test Status | PASSED |
+
+The warnings were deprecation warnings originating from the LangSmith dependency. They did not cause any test failures.
+
+The full test execution output is saved in:
+
+`FINAL_TEST_RESULTS.txt`
+
+This file provides repository-level evidence of the executed automated tests.
+
+### Demo Verification
+
+**Demo Recording:**
+
+[Watch the Final Demo Recording](https://drive.google.com/file/d/1F83qmJJBRRMPyLHnzWiulT3E0y--vffg/view?usp=sharing)
+
+The recording was reviewed by the project developer against the following checklist:
+
+- Web Development internship duration is retrieved from synthetic data.
+- The agent provides a fallback for unconfirmed fees.
+- The inquiry workflow demonstrates consent-based submission.
+- The recording does not display API keys, passwords, or actual student information.
+
+### Verification Summary
+
+| Verification Requirement | Status |
+|---|---|
+| Automated test execution | Passed |
+| Four automated tests | Passed |
+| Test output saved | Completed |
+| Demo video uploaded | Completed |
+| Demo review | Completed by project developer |
+| README documentation | Updated |
+| Staging deployment instructions | Documented |
+| Production requirements | Documented |
+
+Automated testing and documentation review have been completed for the prototype.
+
+These checks do not establish production readiness.
 
 ## Project Status
 
 **Current Stage:** Development prototype and staging review.
 
-The application includes an AI-powered internship support interface, synthetic program data, policy lookup functionality, and a consent-based inquiry workflow.
+The application includes:
 
-Local testing has been performed during development. Staging deployment and production readiness must be verified separately.
+- An AI-powered internship support interface
+- Synthetic internship program data
+- Policy lookup functionality
+- Fallback responses for uncertain information
+- Consent-based inquiry workflow
+- Automated tests
+- Demo recording
+- Local deployment instructions
+- Staging configuration documentation
+- Production security requirements
+
+**Automated Test Status:** 4 tests passed.
 
 **Production Status:** Not production-ready.
 
-Before deployment for real student use, all requirements listed in the Production Gate section must be completed.
+The application must complete the requirements described in the Production Gate section before processing real student information.
+
+No automated internship admission or offer-letter issuance is authorized.
